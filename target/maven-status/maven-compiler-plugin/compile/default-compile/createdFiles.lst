@@ -10,9 +10,7 @@ com/service/IEAS/security/SecurityLogoutSuccessHandler.class
 com/service/IEAS/domain/MasBosMenu.class
 com/service/IEAS/constant/CommonConstant.class
 com/service/IEAS/model/rest/response/ListMenu.class
-com/service/IEAS/dao/impl/MasErrorCodeDaoImpl.class
 com/service/IEAS/model/rest/response/GetUserDailyReportResponse.class
-com/service/IEAS/domain/MasErrorCode.class
 com/service/IEAS/dao/impl/MasBosMenuDaoImpl.class
 com/service/IEAS/configuration/MultiDatasourceConfig.class
 com/service/IEAS/domain/PckUserTransaction.class
@@ -20,7 +18,6 @@ com/service/IEAS/controller/LoginController.class
 com/service/IEAS/model/rest/response/GetMenuResponse.class
 com/service/IEAS/dao/impl/PckUserDaoImpl.class
 com/service/IEAS/service/LoggerService.class
-com/service/IEAS/dao/MasErrorCodeDao.class
 com/service/IEAS/configuration/SecurityConfiguration.class
 com/service/IEAS/dao/PckUserDao.class
 com/service/IEAS/service/impl/ReportServiceImpl.class
@@ -29,10 +26,8 @@ com/service/IEAS/model/rest/response/TranDetail.class
 com/service/IEAS/service/ReportService.class
 com/service/IEAS/model/rest/request/GetUserDailyReportRequest.class
 com/service/IEAS/dao/impl/PckUserTransactionDaoImpl.class
-com/service/IEAS/service/MessageCodeService.class
 com/service/IEAS/domain/UserAuthentication.class
 com/service/IEAS/controller/InitialPageController.class
-com/service/IEAS/service/impl/MessageCodeServiceImpl.class
 com/service/IEAS/Application.class
 com/service/IEAS/dao/PckUserTransactionDao.class
 com/service/IEAS/controller/ApplicationController.class

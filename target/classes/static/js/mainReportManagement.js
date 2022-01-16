@@ -6,38 +6,32 @@
 let data = {};
 let dataSet;
 let table;
-let start;
-let length;
+let type;
+let date;
+let amount;
+let detail;
+let category;
+let userID;
+let tranType;
+let tranDate;
 let updateAppID;
 
 
 $(document).ready(function () {
+    genObject();
     search();
     disableAdd();
-    disableUpdate();
 
 });
 
 function disableAdd() {
     $("#addAPIKey,#addAPISecret,#addAppName,#addAppStatus").keyup(function () {
         $('#submitAdd').prop('disabled',
-                $('#addAPIKey').val() &&
-                $('#addAPISecret').val() &&
-                $('#addAppName').val() &&
-                $('#addAppStatus').val()
-                ? false : true);
-    });
-}
-function disableUpdate() {
-    $('#alertErrorUpdate').hide();
-    $('#alertErrorDelete').hide();
-    $('#submitUpdate').prop('disabled', false);
-    $("#updateAPIKey,#updateAPISecret,#updateAppStatus").keyup(function () {
-        $('#submitUpdate').prop('disabled',
-                $('#updateAPIKey').val() &&
-                $('#updateAPISecret').val() &&
-                $('#updateAppStatus').val() &&
-                updateAppID
+                $('#type').val() &&
+                $('#date').val() &&
+                $('#amount').val() &&
+                $('#detail').val() &&
+                $('#category').val()
                 ? false : true);
     });
 }
@@ -70,12 +64,13 @@ function search() {
             type: "POST",
             contentType: "application/json",
             data: function (d) {
-
-                start = d.start;
-                length = d.length;
+                userID = d.userID;
+                tranType = d.tranType;
+                tranDate = d.tranDate;
                 let object = {
-                    "start": start,
-                    "length": length
+                    "userID": userID,
+                    "tranType": tranType,
+                    "tranDate": tranDate
                 };
                 return JSON.stringify(object);
             },
@@ -188,38 +183,31 @@ function add() {
 
 }
 
+function genObject() {
 
-function updateAppChennel(request) {
+    var now = new Date();
+    var month = (now.getMonth() + 1);
+    var day = now.getDate();
+    if (month < 10)
+        month = "0" + month;
+    if (day < 10)
+        day = "0" + day;
+    var today = now.getFullYear() + '/' + month + '/' + day;
 
-    $.ajax({
-        async: false,
-        url: "updateAppChannel",
-        type: "POST",
-        contentType: "application/json",
-        data: JSON.stringify(request),
-        success: function (response) {
 
-            switch (response.status) {
-                case "success":
-                    haddleSuccess(request, response);
-                    break;
-                case "fail":
-                    haddleError(request, response);
-                    break;
-                default:
-                    haddleError(request, response);
-                    break;
-            }
+    $('.datepicker-start').datepicker({
+        language: 'en'
+    }).val(today);
 
-            search();
-        },
-        error: function (jqXHR, textStatus, errorThrown) {
-            console.log(errorThrown.toString(), textStatus.toString(), jqXHR.toString());
-//            $('#updateMobileAuthFail').show();
-        }
-    });
+    $('.datepicker-end').datepicker({
+        language: 'en'
+    }).val(today);
+
+    date = document.getElementById("date");
+
 
 }
+
 function haddleSuccess(request, response) {
     switch (request.action) {
         case "add":
