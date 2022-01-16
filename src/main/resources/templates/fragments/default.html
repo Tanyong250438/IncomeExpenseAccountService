@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+    <head>
+        <link rel="shortcut icon" th:href="@{images/logo_isuzu_leasing.png}" />
+
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Bootstrap core CSS -->
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+        <!-- Custom styles for this template -->
+        <link rel="stylesheet" th:href="@{/css/simple-sidebar.css}" />
+
+        <!-- Datatables styles -->
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs/dt-1.10.18/r-2.2.2/sc-1.5.0/sl-1.2.6/datatables.min.css"/>
+        <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css" />
+
+        <!-- Bootstrap core JavaScript -->
+        <script th:src="@{/js/jquery-3.3.1.min.js}"></script>
+        <script th:src="@{/js/bootstrap.bundle.min.js}"></script>
+
+        <!-- Datatables JavaScript -->
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs/dt-1.10.18/r-2.2.2/sc-1.5.0/sl-1.2.6/datatables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+        <script type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap4.min.js"></script>
+
+        <!--summernot-->
+        <link rel="stylesheet" th:href="@{/css/summernote-lite.css}" />
+        <script th:src="@{/js/summernote-lite.js}"></script>
+
+        <!--date picker-->
+        <link rel="stylesheet" th:href="@{/css/datepicker.min.css}" />
+        <script th:src="@{/js/datepicker.min.js}"></script>
+
+        <!--spinner loading-->
+        <link rel="stylesheet" th:href="@{/css/loading-ring.css}" />
+
+        <link rel="stylesheet" th:href="@{/css/default.css}" />
+
+    </head>
+    <body>
+        <div class="d-flex" id="wrapper">
+            <!-- sidebar-wrapper -->
+            <!--            <div class="bg-light border-right" id="sidebar-wrapper">
+                            <div class="sidebar-heading">Menu </div>
+                            <div class="list-group list-group-flush">
+                                <ul class="list-unstyled components">
+                                    <li>
+                                        <a href="#hpMenu" data-toggle="collapse" aria-expanded="false" class="text-nav-a-header dropdown-toggle">HP Product</a>
+                                        <ul class="collapse list-unstyled" id="hpMenu">
+                                            <li>
+                                                <a class="dropdown-item text-nav-a" href="#">HP Product Master</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-nav-a" href="/initUpdateHirePurchaseCarAndCampaign">HP Campaign</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-nav-a" href="/initUpdateBranchAndShowroom">TIL Branch and ISUZU Dealer</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="#adMenu" data-toggle="collapse" aria-expanded="false" class="text-nav-a-header dropdown-toggle">Advertisement</a>
+                                        <ul class="collapse list-unstyled" id="adMenu">
+                                            <li>
+                                                <a class="dropdown-item text-nav-a" href="/initupdaterefinancenoti">Refinance Notification</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-nav-a" href="/initupdateHirePurchasenoti">HirePurchase Notification</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+            
+                                    <li>
+                                        <a class="list-group-item list-group-item-action bg-light" href="/initUpdateRefinanceCarAndCampaign">Refinance</a>
+                                    </li>
+                                    <li>
+                                        <a href="#customerDropdown" data-toggle="collapse" aria-expanded="false" class="text-nav-a-header dropdown-toggle">Customer Services</a>
+                                        <ul class="collapse list-unstyled" id="customerDropdown">
+                                            <li>
+                                                <a class="dropdown-item text-nav-a" href="/initUserProfile">UserProfile Management</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-nav-a" href="/initAuthorizeManageMent">Mobile Authorize Management</a>
+                                            </li>
+                                            <li>
+                                                <a class="dropdown-item text-nav-a" href="/userAuthorization">User Authorization</a>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li>
+                                        <a href="/initSystemParameter" class="list-group-item list-group-item-action bg-light">System Parameter</a>
+                                    </li>
+                                    <li>
+                                        <a href="/faqs" class="list-group-item list-group-item-action bg-light">FAQs</a>
+                                    </li>
+                                    <li>
+                                        <a href="/termandcondition" class="list-group-item list-group-item-action bg-light">Term and Condition</a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="list-group-item list-group-item-action bg-light">Contact Us</a>
+                                    </li>
+                                </ul>
+            
+                            </div>
+                        </div>-->
+
+            <div class="bg-light border-right" id="sidebar-wrapper">
+                <div class="sidebar-heading">Menu </div>
+                <div class="list-group list-group-flush">
+                    <ul class="list-unstyled components">
+                        <li th:each="getMenuDB : ${getMenu.listGroupMenuList}" >
+                            <a th:href="${getMenuDB.bosMenuMaster}"  th:text="${getMenuDB.bosMenuGroupName}"  data-toggle="collapse" aria-expanded="false" class="text-nav-a-header dropdown-toggle">${getMenuDB.bosMenuGroupName}</a>
+                            <ul class="collapse list-unstyled" th:id="${getMenuDB.bosMenuMasterID}">
+                                <li th:each="getMenu : ${getMenuDB.listMenus}">
+                                    <a th:href="${getMenu.bosMenuService}" class="dropdown-item text-nav-a" th:text="${getMenu.bosMenuNameTH}">${getMenu.bosMenuNameTH}</a>
+                                </li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <div id="page-content-wrapper">
+                <nav class="navbar navbar-expand-lg navbar-light headnavcolor rounded">
+                    <button class="btn" id="menu-toggle"><img src="../static/images/Hamberger_Black@2x.png"   th:src="@{images/Hamberger_Black@2x.png}"/></button>
+
+                    <div class="imgheadercenter">
+                        <img  th:src="@{images/logo_isuzu_leasing.png}" height="40px" width="auto" />
+                    </div>
+
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon">                        
+
+                        </span>
+                    </button>
+
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+                        <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                            <li class="nav-item">
+                                <img class="rounded float-left" th:src="@{${getMenu.profileImage}}" width="25px"/>
+                            </li>
+                            <li class="nav-item active">
+                                <a class="nav-link" th:text="${getMenu.name}"><b>${getMenu.name}</b> <span class="sr-only">(current)</span></a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="login">signOut</a>
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- replace-content -->
+                <div data-layout-fragment="content" class="bodybgimage">
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Default Content</h1>
+                        <p>The starting state of the menu will appear collapsed on smaller screens, and will appear non-collapsed on larger screens. When toggled using the button below, the menu will change.</p>
+                        <p>Make sure to keep all page content within the <code>#page-content-wrapper</code>. The top navbar is optional, and just for demonstration. Just create an element with the <code>#menu-toggle</code> ID which will toggle the menu when clicked.</p>
+                    </div>
+                </div>
+                <!-- /#replace-content -->
+            </div>
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- Menu Toggle Script -->
+        <script>
+            $("#menu-toggle").click(function (e) {
+                e.preventDefault();
+                $("#wrapper").toggleClass("toggled");
+            });
+        </script>
+    </body>
+</html>

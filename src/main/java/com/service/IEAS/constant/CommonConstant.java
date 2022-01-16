@@ -97,5 +97,15 @@ public class CommonConstant {
 
     public static final String PARAMETER_KEY_SESSION_TIMEOUT_BOS = "session.session_timeout_bos";
     public static final String PARAMETER_KEY_STATUS_SESSION = "SESSION";
-
+    
+    public static final String EXCEPTION_USER_NOT_FOUND = "10001";
+    public static final String EXCEPTION_USER_LOCKED = "10002";
+    public static final String EXCEPTION_USER_EXPIRED = "10003";
+    public static final String EXCEPTION_USER_CREDENTIAL_EXPIRED = "10004";
+    public static final String EXCEPTION_USER_NOT_ENABLED = "10005";
+    
+    public static final String AMPERSAND_MARK_SIGN = "&";
+    public static final String QUESTION_MARK_SIGN = "?";
+    public static final String EQUAL_MARK_SIGN = "=";
+    public static final String ERROR_EXCEPTION_SPLIT_SIGN = ",";
 }

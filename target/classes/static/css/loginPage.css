@@ -1,0 +1,99 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Apr 30, 2019, 2:04:19 PM
+    Author     : Worakan
+*/
+
+body {
+    margin: 0;
+    padding: 0;
+    background: rgba(255,253,235);
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    font-family: DB Moment X;
+}
+
+
+html,body {
+    height: 100%;
+    -webkit-backface-visibility: hidden;
+}
+
+
+
+
+h2 {
+    margin: 0 0 1.875rem;
+    padding: 0;
+    color: #fff;
+    text-align: center;
+}
+
+.container{
+    position: relative;
+    align-items: center;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 40%;
+}
+
+.row{
+
+    align-items: center;
+}
+
+.inputBox {
+    position: relative;
+
+}
+
+.inputBox input {
+    width: 100%;
+    padding: 0.625rem 0;
+    font-size: 1rem;
+    letter-spacing: 0.062rem;
+    margin-bottom: 0.875rem;
+    border: 0.065rem solid #bfbfbf;
+    outline: none;
+    padding-left: 0.925rem;
+}
+
+
+.inputBox label {
+    font-weight: bold;
+}
+
+
+
+input[type="submit"] {
+    border: none;
+    outline: none;
+    color: #fff;
+    padding: 0.625rem 1.25rem;
+    cursor: pointer;
+    border-radius: 0.312rem;
+    font-size: 1rem;
+    width: 100%;
+}
+img{
+    display:block;
+    width: 100%;
+    margin-bottom: 10%;
+    margin-left: auto;
+    margin-right: auto;
+    align-self: center;
+    max-width: 100%;
+    height: auto;
+
+}
+
+
+
+

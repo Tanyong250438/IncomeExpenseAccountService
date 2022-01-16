@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+        <action>
+            <actionName>CUSTOM-install oracle</actionName>
+            <displayName>install oracle</displayName>
+            <goals>
+                <goal>install:install-file</goal>
+                <goal>-Dfile=ojdbc7.jar</goal>
+                <goal>-DgroupId=com.oracle</goal>
+                <goal>-DartifactId=ojdbc7</goal>
+                <goal>-Dversion=12.1.0.1</goal>
+                <goal>-Dpackaging=jar</goal>
+            </goals>
+        </action>
+    </actions>

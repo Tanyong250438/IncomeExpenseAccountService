@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <link rel="shortcut icon" th:href="@{images/logo_isuzu_leasing.png}" />
+        <meta http-equiv="Content-Type" content="text/html;">
+
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+        <link rel="stylesheet" th:href="@{/css/loginPage.css}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/login.js}"></script>
+
+        <title>Login</title>
+
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <img src="../static/images/logo@2x.png"   th:src="@{images/logo@2x.png}"/>
+                    <!--start-->
+                    <div th:if="${exception} == 'true'" style="color:red;">
+                        Code :
+                        <span th:text="${exceptionCode}"></span>
+                        </br>
+                        Message : Incorrect username or password
+                        <!--<span th:text="${exceptionMessage}"></span>-->
+                    </div>
+                    <form th:action="@{/login}" method='POST' autocomplete='off'>
+                        <div class="inputBox">
+                            <label id="lname">Username</label>
+                            <input class="form-control" type="text" name="username" id="username" placeholder="USER NAME"  value="" required onkeyup="this.setAttribute('value', this.value);" >
+                        </div>
+                        <div class="inputBox">
+                            <label id="lpass">Password</label>
+                            <input class="form-control" type="password" name="password" id="password" placeholder="PASSWORD"  value="" required onkeyup="this.setAttribute('value', this.value);">
+                        </div>
+                        <input class="btn btn-success"  type="submit" name="submit" id="submit" value="SIGN IN">
+                    </form>
+
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </body>
+</html>

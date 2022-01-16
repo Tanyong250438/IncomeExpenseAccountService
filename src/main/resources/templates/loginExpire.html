@@ -1,0 +1,57 @@
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html;">
+
+        <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}" />
+        <link rel="stylesheet" th:href="@{/css/loginPage.css}" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <script type="text/javascript" th:src="@{/js/jquery-3.3.1.min.js}"></script>
+        <script type="text/javascript" th:src="@{/js/expirePwd.js}"></script>
+        <title>Reset password</title>
+    </head>
+    <body>
+        <div class="container">
+            <div class="row">
+                <div class="col-4"></div>
+                <div class="col-4">
+                    <img src="../static/images/logo@2x.png"   th:src="@{images/logo@2x.png}"/>
+                    <div style="color:red;" id="textShow">
+                        <center>Password had expired, please change your password</center>
+                    </div>
+                    <div class="alert alert-danger alert-dismissible collapse" role="alert" id="saveUserProfileAlertFailed" style="width:100%">
+                        Can not save data right now. Please try again.
+                    </div>
+                    <div class="alert alert-danger alert-dismissible collapse" role="alert" id="saveUserProfileAlertIncorrectNameOrPwd" style="width:100%">
+                        Incorrect username or password.
+                    </div>
+                    <div class="alert alert-danger alert-dismissible collapse" role="alert" id="saveUserProfileAlertsamePwd" style="width:100%">
+                        Your new password must be different from the previous password.
+                    </div>
+                    <div class="alert alert-success alert-dismissible collapse" role="alert" id="saveUserProfileAlertSuccess" style="width:100%">
+                        Your password has been saved successfully.
+                    </div>
+                    <form>
+                        <div class="container"> 
+
+                            <div class="inputBox">
+                                <label id="lname">Username</label>
+                                <input type="text" name="username" id="username"  value="" required onkeyup="this.setAttribute('value', this.value);" >
+                            </div>
+                            <div class="inputBox">
+                                <label id="lpass">Old Password</label>
+                                <input type="password" name="password" id="oldPassword"  value="" required onkeyup="this.setAttribute('value', this.value);">
+                            </div>
+                            <div class="inputBox">
+                                <label id="lapass">New Password</label>
+                                <input type="password" name="password" id="newPassword"  value="" required onkeyup="this.setAttribute('value', this.value);">
+                            </div>
+                            <center><button type="button" id="btn" style="width:100%" class="btn btn-success" onclick="sendUpdate()">Save password</button></center>
+                        </div>
+                    </form>
+                    <p><a href="login"><center>Back to Login</center></a></p>
+                </div>
+                <div class="col-4"></div>
+            </div>
+        </div>
+    </body>
+</html>
