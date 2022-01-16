@@ -23,7 +23,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 /**
  *
- * @author Anuwat_K
+ * @author Tanyong
  */
 @RestController
 public class ApplicationController {
