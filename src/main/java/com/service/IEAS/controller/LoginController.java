@@ -6,10 +6,8 @@
 package com.service.IEAS.controller;
 
 import com.service.IEAS.service.LoggerService;
-import com.service.IEAS.service.MessageCodeService;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -23,10 +21,7 @@ public class LoginController {
 
     @Autowired
     private LoggerService logger;
-
-    @Autowired
-    private MessageCodeService messageCodeService;
-
+    
     @RequestMapping("/login")
     public String login(Model model) {
         return "login";
@@ -51,28 +46,28 @@ public class LoginController {
         return "login";
     }
 
-    @RequestMapping("/sessionExpired")
-    public String sessionExpired(Model model) {
-        String exceptionCode = HttpStatus.REQUEST_TIMEOUT.toString();
-        String exceptionCodeMessage = messageCodeService.getMessageByMessageCode(exceptionCode);
-
-        model.addAttribute("exception", true);
-        model.addAttribute("exceptionCode", exceptionCode);
-        model.addAttribute("exceptionMessage", exceptionCodeMessage);
-
-        return "login";
-    }
-
-    @RequestMapping("/accessDenied")
-    public String accessDenied(Model model) {
-        String exceptionCode = HttpStatus.FORBIDDEN.toString();
-        String exceptionCodeMessage = messageCodeService.getMessageByMessageCode(exceptionCode);
-
-        model.addAttribute("exceptionCode", exceptionCode);
-        model.addAttribute("exceptionMessage", exceptionCodeMessage);
-
-        return "error";
-    }
+//    @RequestMapping("/sessionExpired")
+//    public String sessionExpired(Model model) {
+//        String exceptionCode = HttpStatus.REQUEST_TIMEOUT.toString();
+//        String exceptionCodeMessage = messageCodeService.getMessageByMessageCode(exceptionCode);
+//
+//        model.addAttribute("exception", true);
+//        model.addAttribute("exceptionCode", exceptionCode);
+//        model.addAttribute("exceptionMessage", exceptionCodeMessage);
+//
+//        return "login";
+//    }
+//
+//    @RequestMapping("/accessDenied")
+//    public String accessDenied(Model model) {
+//        String exceptionCode = HttpStatus.FORBIDDEN.toString();
+//        String exceptionCodeMessage = messageCodeService.getMessageByMessageCode(exceptionCode);
+//
+//        model.addAttribute("exceptionCode", exceptionCode);
+//        model.addAttribute("exceptionMessage", exceptionCodeMessage);
+//
+//        return "error";
+//    }
 
     @RequestMapping("/loginExpire")
     public String loginExpire(Model model) {

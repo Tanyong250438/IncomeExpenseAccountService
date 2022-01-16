@@ -7,7 +7,6 @@ package com.service.IEAS.security;
 
 import com.service.IEAS.constant.CommonConstant;
 import com.service.IEAS.service.LoggerService;
-import com.service.IEAS.service.MessageCodeService;
 import java.io.IOException;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -31,9 +30,6 @@ public class SecurityAuthenticationFailureHandler implements AuthenticationFailu
 
     @Autowired
     private LoggerService logger;
-
-    @Autowired
-    private MessageCodeService messageCodeService;
 
     @Override
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
@@ -59,7 +55,7 @@ public class SecurityAuthenticationFailureHandler implements AuthenticationFailu
         }
 
         //finding message from errorCode
-        exceptionMessage = messageCodeService.getMessageByMessageCode(exceptionCode);
+//        exceptionMessage = messageCodeService.getMessageByMessageCode(exceptionCode);
 
         sb
                 .append("/").append("loginException")

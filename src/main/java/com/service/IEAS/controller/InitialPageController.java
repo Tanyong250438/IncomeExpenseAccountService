@@ -21,6 +21,7 @@ import java.util.List;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.CredentialsExpiredException;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
@@ -148,5 +149,11 @@ public class InitialPageController {
         }
 
         return response;
+    }
+    
+    @RequestMapping("/initMainReportManagement")
+    @PreAuthorize("hasAuthority('1')")
+    public String initAuthorizeManageMent(Model model) {
+        return "mainReportManagement";
     }
 }

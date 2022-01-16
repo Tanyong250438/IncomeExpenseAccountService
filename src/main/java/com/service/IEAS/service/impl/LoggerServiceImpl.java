@@ -7,12 +7,10 @@ package com.service.IEAS.service.impl;
 
 import com.service.IEAS.constant.CommonConstant;
 import com.service.IEAS.service.LoggerService;
-import com.service.IEAS.service.MessageCodeService;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 /**
@@ -21,9 +19,6 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class LoggerServiceImpl implements LoggerService {
-
-    @Autowired
-    private MessageCodeService messageCodeService;
 
     private static final String sFlag = "<";
     private static final String eFlag = ">";

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
     <head>
-        <link rel="shortcut icon" th:href="@{images/logo_isuzu_leasing.png}" />
+        <link rel="shortcut icon" th:href="@{images/logo.png}" />
 
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -108,13 +108,8 @@
                 <div class="sidebar-heading">Menu </div>
                 <div class="list-group list-group-flush">
                     <ul class="list-unstyled components">
-                        <li th:each="getMenuDB : ${getMenu.listGroupMenuList}" >
-                            <a th:href="${getMenuDB.bosMenuMaster}"  th:text="${getMenuDB.bosMenuGroupName}"  data-toggle="collapse" aria-expanded="false" class="text-nav-a-header dropdown-toggle">${getMenuDB.bosMenuGroupName}</a>
-                            <ul class="collapse list-unstyled" th:id="${getMenuDB.bosMenuMasterID}">
-                                <li th:each="getMenu : ${getMenuDB.listMenus}">
-                                    <a th:href="${getMenu.bosMenuService}" class="dropdown-item text-nav-a" th:text="${getMenu.bosMenuNameTH}">${getMenu.bosMenuNameTH}</a>
-                                </li>
-                            </ul>
+                        <li th:each="getMenuDB : ${getMenu.listMenus}">
+                            <a th:href="${getMenuDB.bosMenuService}" class="dropdown-item text-nav-a" th:text="${getMenuDB.bosMenuNameTH}">${getMenu.bosMenuNameTH}</a>
                         </li>
                     </ul>
                 </div>
@@ -126,7 +121,7 @@
                     <button class="btn" id="menu-toggle"><img src="../static/images/Hamberger_Black@2x.png"   th:src="@{images/Hamberger_Black@2x.png}"/></button>
 
                     <div class="imgheadercenter">
-                        <img  th:src="@{images/logo_isuzu_leasing.png}" height="40px" width="auto" />
+                        <img  th:src="@{images/logo.png}" height="40px" width="auto" />
                     </div>
 
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">

@@ -108,4 +108,7 @@ public class CommonConstant {
     public static final String QUESTION_MARK_SIGN = "?";
     public static final String EQUAL_MARK_SIGN = "=";
     public static final String ERROR_EXCEPTION_SPLIT_SIGN = ",";
+    
+    public static final String BEGIN = " Begin.";
+    public static final String END = " End.";
 }
